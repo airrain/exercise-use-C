@@ -29,6 +29,20 @@ void fun(int a[][N],int m)
 			
  } 
 
+//求出数组周边的元素平均值并作为函数返回值返回给主函数中的s
+double fun(int w[][N])
+{
+	int i,j,k = 0;
+	double sum = 0.0;
+	for(i = 0;i < N;i++)
+		for(j = 0;j < N;j++)
+			if(i == 0 || i == N - 1 || j == 0 || j == N -1)
+			{
+				sum += w[i][j];
+				k++;
+			 } 
+		return sum/k;
+ } 
 
 
 
