@@ -62,7 +62,19 @@ double fun(int w[][N])
  	return sum;
   } 
 
-
+//将矩阵的行列进行转换
+void fun(int array[3][3])
+{
+	int i,j;
+	for(i = 0;i < 3;i++)
+		for(j = i + 1;j < 3;j++)
+		{
+			t = array[i][j]
+			array[i][j] = array[j][i];
+			array[j][i] = t;
+			
+		}
+ } 
 
 
 
