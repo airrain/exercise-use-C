@@ -75,6 +75,34 @@ void fun(int array[3][3])
 			
 		}
  } 
+ 
+ //求出小于lim的所有素数并存入数组
+ int fun(int lim,int aa[MAX])
+ {
+ 	int i,j,k = 0;
+ 	for(i = 2;i <= lim;i++)
+ 	{
+ 		for(j = 2;j < i;j++)
+ 			if(i % j == 0) break;
+ 		if(j > i)
+ 			aa[k++] = i;
+ 			
+	 }
+	 return k;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
 
 
 
