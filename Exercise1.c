@@ -91,6 +91,18 @@ void fun(int array[3][3])
 	 return k;
  }
  
+ //从传入的num个字符串中找到最长的一个
+char *fun(char (*a)[81],int num,char *max)
+{
+	int i = 0;
+	max = a[0];
+	for(i = 0;i < num;i++)
+	
+		if(strlen(max) < strlen(a[i]))
+		max = a[i];
+	return max;
+	
+ } 
  
  
  
