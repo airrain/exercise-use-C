@@ -104,6 +104,21 @@ char *fun(char (*a)[81],int num,char *max)
 	
  } 
  
+ //删除字符串中的所有空格
+ void fun(char *str)
+ {
+ 	int i = 0;
+ 	char *p = str;
+ 	while(*p)
+ 	{
+ 		if(*p != '')
+ 		{
+ 			str[i++] = *p;
+		 }
+		 p++;
+	 }
+	 str[i] = '\0';
+  } 
  
  
  
