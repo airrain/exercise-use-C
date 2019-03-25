@@ -120,7 +120,21 @@ char *fun(char (*a)[81],int num,char *max)
 	 str[i] = '\0';
   } 
  
- 
+ //判断字符串是否为回文
+ int fun(char *str)
+ {
+ 	int i,n = 0;fg = 1;
+ 	char *p = str;
+ 	while(*p){
+ 		n++;p++;
+	 }
+	 for(i = 0;i < n/2;i++)
+	 	if(str[i] == str[n-1-i]);
+		else{
+			fg = 0;break;
+		}	
+		return fg;
+  } 
  
  
  
