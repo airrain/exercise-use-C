@@ -137,6 +137,15 @@ char *fun(char (*a)[81],int num,char *max)
   } 
  
  
+ //将二维数组中的数据放到一维数组中
+ void fun(int (*s)[10],int *b,int *n,int nn)
+ {
+ 	int i,j,k = 0;
+ 	for(i = 0;i < mm;i++)
+ 		for(j = 0;j < nn;j++)
+ 			b[k++] = s[i][j];
+ 	*n = k;
+  } 
  
  
  
