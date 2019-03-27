@@ -147,7 +147,29 @@ char *fun(char (*a)[81],int num,char *max)
  	*n = k;
   } 
  
+ //将s所指字符串中下标为偶数同时ASCII值为奇数的字符删除
+ void fun(char *s,char t[])
+ {
+ 	int i ,j = 0;
+ 	for(i = 0;i < strlem(s);i++)
+ 		if(!(i%2) == 0 && (s[i]%2))
+ 			t[j++] = s[i];
+ 	t[j] = 0;	 
+ }
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
  
  
  
