@@ -157,7 +157,14 @@ char *fun(char (*a)[81],int num,char *max)
  	t[j] = 0;	 
  }
  
- 
+ //将ss所指字符串中所有下标为奇数位置的字母转换为大写
+ void fun (char *ss)
+ {
+ 	int i;
+ 	for(i = 0;ss[i] != '\0';i++)
+ 		if(i%2 == 1 && ss[i] >= 'a' && ss[i] <= 'z')
+ 			ss[i] == ss[i] - 32;
+ }
  
  
  
