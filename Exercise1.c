@@ -166,6 +166,11 @@ char *fun(char (*a)[81],int num,char *max)
  			ss[i] == ss[i] - 32;
  }
  
+//将a,b中地两个正整数合并成一个新的整数放在c中
+void fun(int a,int b,long *c)
+{
+	*c = (a%10)*1000 + (b%10)*100 + (a/10)*10 + (b/10);
+ } 
  
  
  
