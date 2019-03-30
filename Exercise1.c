@@ -172,7 +172,16 @@ void fun(int a,int b,long *c)
 	*c = (a%10)*1000 + (b%10)*100 + (a/10)*10 + (b/10);
  } 
  
- 
+ //编写函数，计算级数和
+ double fun(double x,int n){
+ 	int i;
+ 	double s = 1.0;s1 = 1.0;
+ 	for(i = 1;i <= n;i++){
+ 		s1 = s1 * i;
+		 s = s + pow(x,i)/s1; 
+	 }
+	 return s;
+ } 
  
  
  
