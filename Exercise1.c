@@ -183,7 +183,16 @@ void fun(int a,int b,long *c)
 	 return s;
  } 
  
- 
+ //求小于形参n同时能被3与7整除的所有自然数只和的平方根
+ double fun(int n){
+ 	double sum = 0.0;
+ 	int i;
+ 	for(i = 21;i <= n;i++){
+ 		if((i%3) == 0 && (i%7 == 0))
+ 			sum += i;
+ 			return sqrt(sum);
+	 }
+ } 
  
  
  
