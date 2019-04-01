@@ -194,7 +194,18 @@ void fun(int a,int b,long *c)
 	 }
  } 
  
- 
+ //移动字符串中的内容，把第1~m个字符，平移到字符串的最后，把第m+1到最后的字符移到字符串的前部。
+ void fun(char *w,int m){
+ 	int i,j;
+ 	char t;
+ 	for(i = 1;i <= m;i++){
+ 		t = w[0];
+ 		for(j = 1;w[j] != '\0';j++){
+ 			w[j-1] = w[j];
+		 }
+		 w[j-1] = t;
+	 }
+ } 
  
  
  
