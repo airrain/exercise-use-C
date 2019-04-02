@@ -207,8 +207,20 @@ void fun(int a,int b,long *c)
 	 }
  } 
  
+//将一组得分，去掉一个最高分和一个最低分，然后求平均值
  
- 
+ double fun(double a[],int n){
+ 	double sum = 0,max,min;
+ 	int i;
+ 	max = min = a[0];
+ 	for(i = 0;i < n;i++){
+ 		sum += a[i];
+ 		if(max < a[i]) max = a[i];
+ 		if(min > a[i]) min = a[i];
+	 }
+	 sum = sum - max - min;
+	 return (sum/(n-2));
+ }
  
   
  
