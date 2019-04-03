@@ -222,7 +222,13 @@ void fun(int a,int b,long *c)
 	 return (sum/(n-2));
  }
  
-  
+ //将m行n列的二维数组中的字符数据，按列的的顺序依次放到一个字符串中
+void fun(char(*s)[N],char *b){
+	int i,j,k = 0;
+	for(i = 0;i < N;i++)
+		b[k++] = a[j][i];
+	b[k] = '\0'; 
+} 
  
  
  
