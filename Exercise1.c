@@ -229,8 +229,22 @@ void fun(char(*s)[N],char *b){
 		b[k++] = a[j][i];
 	b[k] = '\0'; 
 } 
- 
- 
+
+ //将s所值字符串中ASCII值为奇数的字符删除，剩余字符形成的新串放在t所指数组中 
+ void fun(char *s,char t[])
+ {
+ 	int i,j = 0,n;
+ 	n = strlen(s);
+ 	for(i = 0;i < n;i++)
+ 	{
+ 		if(s[i] % 2 == 0)
+ 		{
+ 			t[j] = s[i];
+ 			j++;
+		 }
+		 t[j] = '\0';
+	 }
+ }
  
  
   
