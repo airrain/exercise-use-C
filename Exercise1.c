@@ -245,6 +245,14 @@ void fun(char(*s)[N],char *b){
 		 t[j] = '\0';
 	 }
  }
+//删除一位数组中华的所有相同的数，使得只剩一个
+int fun(int a[],int n){
+	int i,j = 1;
+	for(i = i;i < n;i++)
+		if(a[j - 1] != a[i])
+			a[j++] = a[i];
+	return j;
+}
  
  
   
