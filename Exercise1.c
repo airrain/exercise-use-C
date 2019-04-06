@@ -254,6 +254,25 @@ int fun(int a[],int n){
 	return j;
 }
  
+ //将一个数字字符串转换为一个整数
+ long fun(char *p){
+ 	long n = 0;
+ 	int flag = 1;
+ 	if(*p == '-')
+	 {
+	 	p++;
+	 	flag = -1;
+	 }
+	 else if(*p == '+')
+	 	p++;
+	 while(*p != '\0')
+	 {
+	 	n = n * 10 + *p - '0'
+	 	p++;
+	 }
+	 return n*flag;
+	 
+ } 
  
   
 
