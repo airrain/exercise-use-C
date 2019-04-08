@@ -285,7 +285,12 @@ int fun(int a[],int n){
 	 while(f < t);
 	 return f;
  }
-  
+ 
+ //计算并输出给定整数n的所有因子
+ int fun(int n){
+ 	int s = 0,i;
+ 	
+ } 
 
 
 
