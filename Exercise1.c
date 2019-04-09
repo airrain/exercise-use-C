@@ -289,7 +289,10 @@ int fun(int a[],int n){
  //计算并输出给定整数n的所有因子
  int fun(int n){
  	int s = 0,i;
- 	
+ 	for(i = 2;i <= n;i++)
+		if(n % i == 0)
+			s += i;
+	return s;  
  } 
 
 
