@@ -295,7 +295,28 @@ int fun(int a[],int n){
 	return s;  
  } 
 
+//计算并输出给定数组中每相邻两个元素的平均值的平方根之和
 
+double fun(double x[9]){
+	double sum = 0.0;
+	int i,j = 1;
+	for(i = 0;i < 9;i++)
+		if(j <= 8)
+		{
+			sum += sqrt((x[i] + x[i+1]) / 2.0);
+			j++;
+		}
+		return sum;
+}
+
+
+
+
+
+
+
+
+ 
 
 
 
