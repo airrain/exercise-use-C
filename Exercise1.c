@@ -309,7 +309,15 @@ double fun(double x[9]){
 		return sum;
 }
 
-
+//将字符串尾部的*号全部删除，前面和中间的*号不动
+void fun(char *a){
+	while(* != '\0')
+		a++;
+	a--;
+	while(*a == '*')
+		a--;
+	*(a+1) = '\0';
+} 
 
 
 
