@@ -319,6 +319,17 @@ void fun(char *a){
 	*(a+1) = '\0';
 } 
 
+//比较字符串的长度
+char *fun(char *s,char *t){
+	int i,j;
+	for(i = 0;s[i] != '\0';i++);
+	for(j = 0;t[j] != '\0';j++);
+	if(i <= j)
+		return t;
+	else
+		return s;
+	
+} 
 
 
 
