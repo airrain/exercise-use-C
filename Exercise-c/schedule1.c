@@ -6,7 +6,7 @@ void read(){
 		in x,y,k;
 		for(x = 0;x <= m;x++){
 			for(y = 0;y < m;y++){
-				
+				if(x - a[k-1] >= 0)	
 			}
 		}
 	}
