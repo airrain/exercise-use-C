@@ -331,7 +331,15 @@ char *fun(char *s,char *t){
 	
 } 
 
-
+//编写函数统计在tt所指的字符串中'a'到'z'26个小写字母各自出现的次数，并依次放在pp所指的数组中
+void fun(char *tt,int pp[]){
+	int i;
+	for(i=0;i<26;i++)
+		pp[i]=0;
+	for(;*tt!='\0';tt++)
+		if(*tt>='a' && *tt<='z')
+			pp[*tt-'a']++;
+} 
 
 
 
