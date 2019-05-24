@@ -341,6 +341,22 @@ void fun(char *tt,int pp[]){
 			pp[*tt-'a']++;
 } 
 
+//编写函数，将字符串中的前导*号全部移动到字符串的尾部
+void fun(char *a) {
+	int i = 0,n = 0;
+	char *p;
+	p = a;
+	while(*p == '*'){
+		n++;p++;
+	}
+	while(*p){
+		a[i] = *p;i++;p++;
+	}
+	while(n!=0){
+		a[i] = '*';i++;n--;
+	}
+	a[i] = '\0';
+}
 
 
  
