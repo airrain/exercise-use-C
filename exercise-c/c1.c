@@ -358,6 +358,16 @@ void fun(char *a) {
 	a[i] = '\0';
 }
 
+//N名学生的成绩已在主函数中放入一个带有头结点的链表结构中，h指向链表的头结点，编写函数fun：找出学生的最高分，并由函数值返回。
+double fun(STREC *h){
+	double max = h -> s;
+	while(h != NULL){
+		if(max < h -> s)
+			max = h -> s;
+		h = h -> next;
+	}
+	return max;
+} 
 
  
 
