@@ -37,4 +37,17 @@ def getSumOfSquares(num):
         for i in digitls:
                 sum += i ** 2
         return sum
+def main():
+        n = input()
+        sumofSqrs = eval(n)
+        count = 0
+        while sumofSqrs != 1:
+                sumofSqrs = getSumOfSquares(sumofSqrs)
+                count += 1
+                if count > 2000:
+                        print("False")
+                        break
+        else:
+                print("True")
+main()
         
