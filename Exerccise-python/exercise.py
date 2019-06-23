@@ -31,4 +31,10 @@ class Node:
                 self.children = []
 '''快乐数字'''
 def getSumOfSquares(num):
+        numStr = str(num)
+        sum = 0
+        digitls = [int(x) for x in numStr]
+        for i in digitls:
+                sum += i ** 2
+        return sum
         
