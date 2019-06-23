@@ -29,3 +29,6 @@ class Node:
         def __init__(self,val):
                 self.val = val
                 self.children = []
+'''快乐数字'''
+def getSumOfSquares(num):
+        
