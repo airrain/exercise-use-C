@@ -15,11 +15,13 @@ def depute(items,key=None):
                 seen.add(val)
 
 from collections import Counter
+words = 'abcda'
 word_counts = Counter.(words)
 top_three = word_counts.most_common(3)
 print(top_three)
 
 from operator import itemgetter
+rows = [1,2,3]
 rows_by_fname = sorted(rows,key = itemgetter('fname'))
 rows_by_uid = sorted(rows,key = itemgetter('uid'))
 print(rows_by_fname)
