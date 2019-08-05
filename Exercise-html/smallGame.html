@@ -23,7 +23,10 @@
                 functionId = setInterval("draw()",100);
             }
             function draw(){
-                context.clearRect()
+                context.clearRect(0,0,width,height);
+                context.save();
+                context.fillstyle = "lightgreen";
+                
             }
 
 

@@ -53,3 +53,9 @@ def main():
                 print("True")
 main()
         
+def f(x):
+        return x * x
+
+import hashlib 
+md5 = hashlib.md5()
+md5.update()
