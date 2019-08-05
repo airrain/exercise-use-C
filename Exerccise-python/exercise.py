@@ -59,3 +59,42 @@ def f(x):
 import hashlib 
 md5 = hashlib.md5()
 md5.update()
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(0,2 * np.pi,num = 100)
+y = np.sin(x)
+plt.plot(x,y)
+
+import numpy as np
+import matplotlib.pyplot as plt
+n_person = 2000
+n_times = 500
+t = np.arange(n_times)
+steps = 2 * np.random.randint(0,1,(n_person,n_times)) - 1
+amount = np.cumsum(steps,axis = 1)
+std_amount = amount ** 2
+mean_sd_amount = std_amount.mean(axis = 0)
+plt.xlabel(r"$t$")
+plt.ylabel(r"$\sqrt{\langle (\delta x)^2 \rangle}$")
+plt.plot(t, np.sqrt(mean_sd_amount), 'g.', t, np.sqrt(t), 'r-')
+
+import pandas as pd
+s = pd.Series(2,4,6,7)
+
+from sklearn import datasets
+digits = datasets.load_digits()
+images_and_labels = list(zip(digits.images,digits.target))
+plt.figure(figsize = (8,6),dpi = 200)
+for index,(image,label) in enumerate(images_and_labels[:8]):
+    plt.subplot(2,4,index + 1)
+    plt.axis('off')
+    plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
+    plt.title('Digit:%i' % label,fontsize = 20)
+from sklearn.model_selection import train_test_split 
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(digits.data, digits.target, test_size=0.20, random_state=2)
+from sklearn import svm
+clf = svm.SVC(gamma = 0.001,C = 100.,probability = True)
+clf.fit(Xtrain,Ytrain)
+clf.score(Xtest,Ytest)
