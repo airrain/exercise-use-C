@@ -98,3 +98,15 @@ from sklearn import svm
 clf = svm.SVC(gamma = 0.001,C = 100.,probability = True)
 clf.fit(Xtrain,Ytrain)
 clf.score(Xtest,Ytest)
+
+import numpy as np
+import matplotlib.pyplot as plt
+n_dots = 20
+x = np.linspace(0,1,n_dots)
+y = np.sqrt(x) + 2 * np.random.rand(n_dots) - 0.1
+def plot.polynomial_fit(x,y,order):
+        p = np.poly1d(np.polyfit(x,y,order))
+        t = np.linspace(0,1,200)
+        plt.plot(x, y, 'ro', t, p(t), '-', t, np.sqrt(t), 'r--')
+        return p
+
