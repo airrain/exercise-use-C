@@ -9,6 +9,6 @@ y = y.reshape(-1,1)
 
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures  
-from sklearn.
+from sklearn.linear_model import LinearRegression
 
 
