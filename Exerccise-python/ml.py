@@ -52,6 +52,32 @@ for i in range(len(degrees)):
     plot_learning_curve(polynomial_model(degrees[i]),titles[i],X,y,ylim = (0.75,1.01),cv = cv)
 plt.show()
 
+#knn算法
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.datasets.samples_generator import make_blobs
+centers = [[-2,2],[2,2],[0,4]]
+X,y = make_blobs(n_samples=60, centers=centers, cluster_std=0.6, random_state=0)
+plt.figure(figsize = (16,8))
+c = np.array(centers)
+plt.scatter(X[:,0],X[:,1],c = y,s = 100,cmap = 'cool')
+plt.scatter(c[:,0],c[:,1],s = 100,marker = '^',cmap = 'orange')
+
+from sklearn.neighbors import KNeighborsClassifier
+k = 5
+clf = KNeighborsClassifier(n_neighbors=k)
+clf.fit(X,y)
+X_sample = [0,2]
+X_sample = np.array((X_sample)).reshape(1,-1)
+y_sample = clf.predict(X_sample)
+neighbors = clf.kneighbors(X_sample, return_distance=False)
+plt.figure(figsize = (16,10))
+plt.scatter(X[:,0],X[:,1],c = y,s = 100,cmap = 'cool')
+plt.scatter(c[:,0],c[:,1],s = 100,marker = '^',cmap = 'orange')
+plt.scatter(X_sample[0,0],X_sample[0,1],marker = 'x',s = 100,cmap = 'cool')
+for i in neighbors[0]:
+    plt.plot([X[i][0],X_sample[0][0]],[X[i][1],X_sample[0][1]],'k--',linewidth = 0.6)
+
 
 
 
