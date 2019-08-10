@@ -52,7 +52,7 @@ for i in range(len(degrees)):
     plot_learning_curve(polynomial_model(degrees[i]),titles[i],X,y,ylim = (0.75,1.01),cv = cv)
 plt.show()
 
-#knn算法
+#knn算法分类
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets.samples_generator import make_blobs
@@ -77,6 +77,31 @@ plt.scatter(c[:,0],c[:,1],s = 100,marker = '^',cmap = 'orange')
 plt.scatter(X_sample[0,0],X_sample[0,1],marker = 'x',s = 100,cmap = 'cool')
 for i in neighbors[0]:
     plt.plot([X[i][0],X_sample[0][0]],[X[i][1],X_sample[0][1]],'k--',linewidth = 0.6)
+
+#knn算法拟合
+import matplotlib.pyplot as plt
+import numpy as np
+n_dots = 50
+X = np.random.rand(n_dots,1)
+y = 5 * np.cos(X).ravel()
+y += 0.2 * np.random.rand(n_dots) - 0.1
+from sklearn.neighbors import KNeighborsRegressor
+k = 5
+knn = KNeighborsRegressor(n_neighbors = k)
+knn.fit(X,y)
+T = np.linspace(0,1,500)[:,np.newaxis]
+y_pred = knn.predict(T)
+knn.score(X,y)
+plt.figure(figsize = (16,10))
+plt.scatter(X,y,c = 'g',s = 100,label = 'data')
+plt.plot(T,y_pred,c = 'k',label = 'prediction',lw = 4)
+plt.title("KNeighborsRegressor (k = %i)" % k)
+plt.axis('tight')
+plt.show()
+
+#糖尿病预测
+import pandas as pd
+
 
 
 
