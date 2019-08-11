@@ -101,7 +101,21 @@ plt.show()
 
 #糖尿病预测
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
+data = pd.read_csv('datasets/pima-indians-diabetes/diabetes.csv')
+print('dataset shape {}'.format(data.shape))
+data.head()
+data.groupby("Outcome").size()
+X = data.iloc[:,0:8]
+Y = data.iloc[:,8]
+print('shape of X {}； shapae of Y {}'.format(X.shape,Y.shape))
+
+from sklearn.model_selection import train_test_split
+Xtrain,Xtest,Ytrain,Ytest = train_test_split(X,Y,test_size = 0.2)
+
+from sklearn.neighbors import KNeighborsClassifier
 
 
 
