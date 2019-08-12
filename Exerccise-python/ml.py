@@ -145,6 +145,10 @@ test_score = knn.score(Xtest,Ytest)
 print("train score:{};test score:{}".format(train_score,test_score))
 
 from sklearn.model_selection import ShuffleSplit
-from common.
-    
+from common.utils import plot_learning_curve
+   
+knn = KNeighborsClassifier(n_neighbors = 2)
+cv = ShuffleSplit(n_splits=10, test_size=0.2,  random_state=0)
+plt.figure(16,10)
+plot_learning_curve(plt,knn ,"Learn Curve KNN for Diabetes",X, y, ylim=(0.0,0.1), cv=cv)
 
