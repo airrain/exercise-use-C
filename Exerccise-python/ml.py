@@ -132,11 +132,11 @@ from sklearn.model_selection import cross_val_score
 
 results = []
 for name,model in models:
-    kFold = KFold(n_splits = 2)
+    kFold = KFold(n_splits = 10)
     cv_result = cross_val_score(model,X,Y,cv = kFold)
     results.append(name,cv_result)
 for i in range(len(results)):
-    print("name: {};score:{}".format(results[i][0,results[i][1]]).mean())
+    print("name: {};cross val score:{}".format(results[i][0,results[i][1]]).mean())
 
 knn = KNeighborsClassifier(n_neighbors = 2)
 knn.fit(Xtrain,Ytrain)
@@ -152,3 +152,20 @@ cv = ShuffleSplit(n_splits=10, test_size=0.2,  random_state=0)
 plt.figure(16,10)
 plot_learning_curve(plt,knn ,"Learn Curve KNN for Diabetes",X, y, ylim=(0.0,0.1), cv=cv)
 
+from sklearn.feature_selection import SelectKBest
+selector = SelectKBest(k = 2)
+X_new = selector.fit_transform(X,Y)
+X_new[0:5]
+
+for name,model in models:
+    kfold = KFold(n_splits = 10)
+    cv_result = cross_val_score(model,X_new,Y,cv = kfold)
+    results.append(name,cv_result)
+for i in range(len(results)):
+    print("name: {};cross val score: {}".format(results[i][0],results[i][1]).mean()) 
+
+plt.figure(figsize=(10,6))
+plt.ylabel("BMI")
+plt.xlabel("Glucose")
+plt.scatter(X_new[Y == 0][:,0],X_new[Y == 0][:,1])
+plt.scatter(X_new[Y == 1][:,0],X_new[Y == 1][:,1])
