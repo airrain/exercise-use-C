@@ -116,10 +116,35 @@ from sklearn.model_selection import train_test_split
 Xtrain,Xtest,Ytrain,Ytest = train_test_split(X,Y,test_size = 0.2)
 
 from sklearn.neighbors import KNeighborsClassifier
+models = []
+models.append("KNN",KNeighborsClassifier(n_neighbors = 2))
+models.append("KNN with weights",KNeighborsClassifier(n_neighbors=5,weights='distance'))
+models.append("KNN neighbors",KNeighborsClassifier(n_neighbors=2,radius = 500.0))
+results = []
+for name,model in models:
+    model.fit(Xtrain,Ytrain)
+    results.append(name,model.score(Xtest,Ytest))
+for i in range(len(results)):
+    print("name: {};score:{}".format(results[i][0],results[i][1]))
 
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score
 
+results = []
+for name,model in models:
+    kFold = KFold(n_splits = 2)
+    cv_result = cross_val_score(model,X,Y,cv = kFold)
+    results.append(name,cv_result)
+for i in range(len(results)):
+    print("name: {};score:{}".format(results[i][0,results[i][1]]).mean())
 
+knn = KNeighborsClassifier(n_neighbors = 2)
+knn.fit(Xtrain,Ytrain)
+train_score = knn.score(Xtrain,Ytrain)
+test_score = knn.score(Xtest,Ytest)
+print("train score:{};test score:{}".format(train_score,test_score))
 
-
+from sklearn.model_selection import ShuffleSplit
+from common.
     
 
