@@ -169,3 +169,9 @@ plt.ylabel("BMI")
 plt.xlabel("Glucose")
 plt.scatter(X_new[Y == 0][:,0],X_new[Y == 0][:,1])
 plt.scatter(X_new[Y == 1][:,0],X_new[Y == 1][:,1])
+
+#线性回归算法
+import matplotlib.pyplot as plt
+import numpy as np
+
+n_dots = 200
