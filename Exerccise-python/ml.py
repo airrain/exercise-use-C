@@ -213,3 +213,27 @@ for i,r in enumerate(results):
 #boston房价预测
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.datasets import load_boston
+
+boston = load_boston
+X = boston.data
+y = boston.target
+X.shape
+X[0]
+boston.feature_names
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.3,random_state = 3)
+
+import time
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+start = time.clock()
+model.fit(X_train,y_train)
+train_score = model.score(X_train,y_train)
+cv_score = model.score(X_test,y_test)
+print('elapse: {};train_score: {};cv_score: {}'.format(time.clock() - start,train_score,cv_score))
+
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import polynomial_model
+from sklearn.pipeline import Pipeline
+
