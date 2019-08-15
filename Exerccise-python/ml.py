@@ -231,9 +231,35 @@ start = time.clock()
 model.fit(X_train,y_train)
 train_score = model.score(X_train,y_train)
 cv_score = model.score(X_test,y_test)
-print('elapse: {};train_score: {};cv_score: {}'.format(time.clock() - start,train_score,cv_score))
+print('elapse: {0:0.6f};train_score: {1:.6f};cv_score: {2:.6f}'.format(time.clock() - start,train_score,cv_score))
 
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import polynomial_model
 from sklearn.pipeline import Pipeline
 
+def polynomial_model(degree = 1):
+    polynomial_featureas = PolynomialFeatures(degree=degree,include_bias=False)
+    linear_regression = LinearRegression(normalize=True)
+    pipeline = Pipeline([("polynomial_features",polynomial_features),("linear_regression",linear_regression)]) 
+    return pipeline
+
+model = polynomial_model(degree = 2)
+start = time.clock()
+model.fit(X_train,y_train)
+train_score = model.score(X_train,y_train)
+cv_score = model.score(X_test,y_test)
+print('elaspe: {0:0.6f};train_score: {1:.6f};cv_score: {2:.6f}'.format(time.clock() - start,train_score,cv_score))
+
+from commom.utils import plot_learning_curve
+from sklearn.model_selection import ShuffleSplit
+
+cv = ShuffleSplit(n_splits=10, test_size=0.2,random_state=0)
+plt.figure(figsize = (18,4))
+title = 'Learning curves({degree = 0})' 
+degrees = [1,2,3]
+start = time.clock()
+plt.figure(figsize = (18,4),dpi=200) 
+for i in range(len(degrees)):
+    plt.subplot(1,3,i + 1)
+    plot_learning_curve(polynomial_model(polydegrees[i]),title.format(degrees[i]),X,y,ylim = (0.01,1.01),cv = cv)
+print('elaspe: {0:0.6f}'.format(time.clock() - start)) 
