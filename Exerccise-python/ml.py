@@ -263,3 +263,7 @@ for i in range(len(degrees)):
     plt.subplot(1,3,i + 1)
     plot_learning_curve(polynomial_model(polydegrees[i]),title.format(degrees[i]),X,y,ylim = (0.01,1.01),cv = cv)
 print('elaspe: {0:0.6f}'.format(time.clock() - start)) 
+
+#逻辑回归
+import matplotlib.pyplot as plt
+import numpy as np
