@@ -267,3 +267,18 @@ print('elaspe: {0:0.6f}'.format(time.clock() - start))
 #逻辑回归
 import matplotlib.pyplot as plt
 import numpy as np
+
+def f_0(x):
+    return -np.log(x)
+def f_1(x):
+    return -np.log(1 - x)
+
+#癌症预测
+import matplotlib.pyplot as plt
+import numpy as np
+
+from sklearn.datasets import load_breast_cancer
+cancer = load_breast_cancer()
+X = cancer.data
+y = cancer.target
+print('data shape: {0};no.positive: {1};no.dispositive: {2}'.format(X.shape,))
