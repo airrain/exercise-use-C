@@ -304,4 +304,35 @@ print('sample of predict probolity: {0}'.format(y_pred_prob[0]))
 y_pred_prob_0 = y_pred_prob[:,0] > 0.1
 result = y_pred_prob[y_pred_prob_0]
 
+import time
+from sklearn.linear_model import LogisticRegression 
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import PolynomialFeatures 
 
+def polynomial_model(degree = 1,**kwarg):
+    polynomial_features = PolynomialFeatures(degree = degree,include_bias = False)
+    logistic_regression = LogisticRegression(**kwargs)
+    pipeline = Pipeline([("polynomial_features",polynomial_features),("logistic_regression",logistic_regression)]) 
+    return pipeline
+model = polynomial_model(degree = 2,penalty = 'l1',solver = 'liblinear')
+start = time.clock()
+model.fit(X_train,y_train)
+train_score = model.score(X_train,y_train)
+cv_score = model.score(X_test,y_test)
+print('elaspe: {0:.6f};train_score: {"1:.6f"};cv_score: {2:.6f}'.format(time.clock() - start,train_score,cv_score))
+
+logistic_regression = model.named_steps['logistic_regression']
+print('model peremeters shape: {0};count of non_zero element: {1}'.format(logistic_regression.coef_.shape,np.count_nonzero(logistic_regression.coef_)))
+
+from common.utils import plot_learning_curve
+from sklearn.model_selection import ShuffleSplit
+cv = ShuffleSplit(n_splits = 10,test_size = 0.2,random_state = 0)
+title = 'Learning Curves (degree = {0},penalty = {1})'
+degrees = [1,2]
+penalty = 'l1'
+start = time.clock()
+plt.figure(figsize = (12,4),dpi = 144)
+for i in range(len(degrees)):
+    plt.subplot(1,len(degrees),i + 1)
+    plot_learning_curve(plt,)
+print('elaspe: {:.6f};')
