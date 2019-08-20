@@ -334,5 +334,18 @@ start = time.clock()
 plt.figure(figsize = (12,4),dpi = 144)
 for i in range(len(degrees)):
     plt.subplot(1,len(degrees),i + 1)
-    plot_learning_curve(plt,)
-print('elaspe: {:.6f};')
+    plot_learning_curve(plt,polynomial_model(degree = degrees[i],penalty = penalty,solver = 'liblinear',max_iter = 300),title.format(degrees[i],penalty),X, y, ylim=(0.8,1.01), cv=cv)
+print('elaspe: {0:.6f}'.format(time.clock() - start))
+
+import warnings
+warnings.filterwarnings("ignore")
+
+penalty = 'l2'
+start = time.clock()
+plt.figure(figsize = (12,4),dpi = 144)
+for i in range(len(degrees)):
+    plt.subplot(1,len(degrees),i + 1)
+    plot_learning_curve(plt,polynomial_model(degree = degrees[i],penalty = penalty,solver = 'lbfgs'),title.format(degrees[i],penalty),X, y, ylim=(0.8,1.01), cv=cv)
+print('elaspe: {0:.6f}'.format(time.clock() - start))
+
+
