@@ -348,4 +348,32 @@ for i in range(len(degrees)):
     plot_learning_curve(plt,polynomial_model(degree = degrees[i],penalty = penalty,solver = 'lbfgs'),title.format(degrees[i],penalty),X, y, ylim=(0.8,1.01), cv=cv)
 print('elaspe: {0:.6f}'.format(time.clock() - start))
 
+#决策树
+import matplotlib.pyplot as plt
+import numpy as np
+
+def entropy(px):
+    return - (px * np.log2(px))
+x = np.linspace(0.01,1,100)
+plt.figure(figsize = (5,3),dpi = 200)
+plt.title('$Entropy(x) = - P(x) * log_2(P(x))$')
+plt.xlim(0,1)
+plt.ylim(0,0.1)
+plt.xlabel('P(x)')
+plt.ylabel('Entropy')
+plt.plot(x,entropy(x),'r-')
+
+def gini_impurity(px):
+    return px * (1 - px)
+
+x = np.linspace(0.01,1,100)
+plt.figure(figsize = (5,3),dpi = 200)
+plt.title('$Gini(x) = - P(x) * log_2(P(x))$')
+plt.xlim(0,1)
+plt.ylim(0,0.1)
+plt.xlabel('P(x)')
+plt.ylabel('Gini Impurity')
+plt.plot(x,entropy(x),'r-')
+
+#决策树预测泰坦尼克
 
