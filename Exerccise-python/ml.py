@@ -376,4 +376,10 @@ plt.ylabel('Gini Impurity')
 plt.plot(x,entropy(x),'r-')
 
 #决策树预测泰坦尼克
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+def read_dataset(fname):
+    
 
