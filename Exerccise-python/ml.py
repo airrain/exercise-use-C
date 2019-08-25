@@ -381,5 +381,25 @@ import numpy as np
 import pandas as pd
 
 def read_dataset(fname):
-    
+    data = pd.read_csv(fname,index_col=0)
+    data.drop(['Name','Ticket','Cabin'],inplace=True)
+    data['Sex'] = (data['Sex == male']).astype('int')
+    labels = data['Embarked'].unique().tolist()
+    data['Embarked'] = data['Embarked'].apply(lambda n:labels.index(n))
+    data = data.fillna(0)
+    return data
+train = read_dataset('datasets/titanic/train.csv')
+train.head()
 
+from sklearn.model_selection import train_test_split
+y = train['survived'].values()
+X = train.drop(['survived'],axis = 1).values()
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.2)
+print('train datset: {0}; test dataset: {1}'.format(X_train.shape,X_test.shape))
+
+from sklearn.tree import DecisionTreeClassifier
+clf = DecisionTreeClassifier() 
+clf.fit(X_train,y_train)
+train_score = clf.score(X_train,y_train)
+test_score = clf.score(X_test,y_test)
+print('train score: {0};test score: {1}'.format(train_score,test_score))
