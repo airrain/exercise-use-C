@@ -403,3 +403,10 @@ clf.fit(X_train,y_train)
 train_score = clf.score(X_train,y_train)
 test_score = clf.score(X_test,y_test)
 print('train score: {0};test score: {1}'.format(train_score,test_score))
+
+from sklearn.tree import export_graphviz
+
+with open("titanic.dot",'w') as f:
+    f = export_graphviz(clf,out_file=f)
+    
+    
